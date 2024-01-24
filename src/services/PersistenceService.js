@@ -28,9 +28,7 @@ export const fetchLink = async (id) => {
     try {
         const cached = fetchCachedLink(id)
         console.log(cached);
-        if (cached.url !== null) return cached.data;
-
-        const res= await axios.get(`${consts.DB_URL}${id}`);
+        const res= fetchCachedLink(id) ?? await axios.get(`${consts.DB_URL}${id}`);
         return res.data;
     }
     catch  {
