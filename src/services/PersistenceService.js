@@ -9,8 +9,8 @@ import {consts} from "../utils/consts.js";
  */
 export const writeLink = async (postData) => {
     try {
-        const res = await axios.post(`${consts.DB_URL}`, postData);
         writeCachedLink(postData);
+        const res = await axios.post(`${consts.DB_URL}`, postData);
         return res.data;
     }
     catch (ex) {
@@ -26,7 +26,7 @@ export const writeLink = async (postData) => {
  */
 export const fetchLink = async (id) => {
     try {
-        const res = fetchCachedLink(id) ?? await axios.get(`${consts.DB_URL}${id}`);
+        const res= fetchCachedLink(id) ?? await axios.get(`${consts.DB_URL}${id}`);
         return res.data;
     }
     catch  {

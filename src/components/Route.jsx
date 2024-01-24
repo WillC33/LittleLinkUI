@@ -12,7 +12,8 @@ export const ExternalRoute = () => {
         const hash = window.location.pathname.split('/go/')[1];
 
         const res = await fetchLink(hash)
-        if (res)
+        console.log(res.url)
+        if (res.url)
             window.location.replace(res.url);
         else
             route('/', true);

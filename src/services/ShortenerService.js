@@ -5,7 +5,7 @@ import {writeLink} from "./PersistenceService.js";
 /**
  * Shortens a link using MD5. WARNING: this is not crypto secure!
  * @param url
- * @returns {`lustrous-marzipan-84428a/go/${*}`}
+ * @returns {`lustrous-marzipan-84428a/go/${*}`|null}
  */
 export const shorten = (url) => {
     if (!validateUrl(url)) return null;
@@ -37,7 +37,7 @@ const validateUrl = (url) => {
  */
 const ensureHttpProtocol = (url) => {
     if (!url.startsWith("http://") && !url.startsWith("https://")) {
-        url = "http://" + url;
+        url = "https://" + url;
     }
     return url;
 }
