@@ -26,11 +26,11 @@ export const ShortenerForm = () => {
 
   return (
       <>
-        <h1>Little Link</h1>
+        <h1>little link</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input type="text" onInput={(e) => setLink(e.target.value)}/>
           <button>Shorten</button>
-          {url && <p>Your link is copied to your clipboard: <a href={url}>{url}</a></p>}
+          {url && <p>Your link is copied to the clipboard: <a href={url}>{url}</a></p>}
           {!isValid && <WarningBoundary warning="A valid URL is required" />}
         </form>
       </>

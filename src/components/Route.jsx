@@ -1,6 +1,7 @@
 import { useEffect } from 'preact/hooks';
 import {route} from "preact-router";
 import {fetchLink} from "../services/";
+import {Loader} from "./Loader.jsx";
 
 /**
  * The external route is used for 301 to the retrieved link
@@ -12,11 +13,11 @@ export const ExternalRoute = () => {
         const hash = window.location.pathname.split('/go/')[1];
 
         const res = await fetchLink(hash)
-        console.log(res.url)
-        if (res.url)
+        if (res?.url) {
             window.location.replace(res.url);
+        }
         else
             route('/', true);
     }, []);
-    return null;
+    return <Loader />
 };
