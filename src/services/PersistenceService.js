@@ -26,8 +26,6 @@ export const writeLink = async (postData) => {
  */
 export const fetchLink = async (id) => {
     try {
-        const cached = fetchCachedLink(id)
-        console.log(cached);
         const res= fetchCachedLink(id) ?? await axios.get(`${consts.DB_URL}${id}`);
         return res.data;
     }
