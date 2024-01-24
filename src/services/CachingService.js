@@ -11,10 +11,11 @@ export const writeCachedLink = (postData) => {
 /**
  * Retrieves a link from the local storage
  * @param id
- * @returns {{data: {id, url: string}}}
+ * @returns {{data: {id, url: string}}|null}
  */
 export const fetchCachedLink = (id) => {
     const res =  localStorage.getItem(id);
+    if (!res) return null;
     //returns a matching structure as the db for easier upstream handling
     return {data: {id, url: res}}
 }
