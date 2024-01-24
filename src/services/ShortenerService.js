@@ -5,7 +5,7 @@ import {writeLink} from "./PersistenceService.js";
 /**
  * Shortens a link using MD5. WARNING: this is not crypto secure!
  * @param url
- * @returns {`http://localhost:5173/go/${*}`}
+ * @returns {`lustrous-marzipan-84428a/go/${*}`}
  */
 export const shorten = (url) => {
     if (!validateUrl(url)) return null;
