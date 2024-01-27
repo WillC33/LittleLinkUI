@@ -11,6 +11,7 @@ export const ShortenerForm = () => {
   const [link, setLink] = useState("");
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(true);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,7 +29,7 @@ export const ShortenerForm = () => {
       <>
         <h1>little link</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <input type="text" onInput={(e) => setLink(e.target.value)}/>
+          <input type="text" value={link} onInput={(e) => setLink(e.target.value)}/>
           <button>Shorten</button>
           {url && <p>Your link is copied to the clipboard: <a href={url}>{url}</a></p>}
           {!isValid && <WarningBoundary warning="A valid URL is required" />}
